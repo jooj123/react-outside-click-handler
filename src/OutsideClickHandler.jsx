@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { forbidExtraProps } from 'airbnb-prop-types';
 import { addEventListener } from 'consolidated-events';
-import objectValues from 'object.values';
 
 const DISPLAY = {
   BLOCK: 'block',
@@ -11,13 +9,13 @@ const DISPLAY = {
   INLINE_BLOCK: 'inline-block',
 };
 
-const propTypes = forbidExtraProps({
+const propTypes = {
   children: PropTypes.node.isRequired,
   onOutsideClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   useCapture: PropTypes.bool,
-  display: PropTypes.oneOf(objectValues(DISPLAY)),
-});
+  display: PropTypes.oneOf(Object.values(DISPLAY)),
+};
 
 const defaultProps = {
   disabled: false,
@@ -115,7 +113,7 @@ export default class OutsideClickHandler extends React.Component {
       <div
         ref={this.setChildNodeRef}
         style={
-          display !== DISPLAY.BLOCK && objectValues(DISPLAY).includes(display)
+          display !== DISPLAY.BLOCK && Object.values(DISPLAY).includes(display)
             ? { display }
             : undefined
         }
