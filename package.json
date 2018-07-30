@@ -1,5 +1,5 @@
 {
-  "name": "react-outside-click-handler",
+  "name": "@jooj/react-outside-click-handler",
   "version": "1.2.2",
   "description": "A React component for dealing with clicks outside its subtree",
   "main": "index.js",
